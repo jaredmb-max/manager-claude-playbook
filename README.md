@@ -124,13 +124,25 @@ That's what this playbook is actually trying to give back. Not just hours. Prese
 
 ---
 
+## Offline — Field Notes on Leading the Whole Person
+
+This playbook covers the tools. **Offline** covers everything underneath them.
+
+Offline is a free weekly newsletter — field notes for leaders doing the inner work that doesn't show up on the org chart. It's for the version of you that exists when the Slack notifications stop. The manager who wants to be the same person in every room.
+
+Each issue is a dispatch from the gap between who you are and how you show up. Short, honest, no fluff.
+
+**[Subscribe free at jaredlangley.cc](https://jaredlangley.cc)**
+
+> *"For leaders doing the inner work that doesn't show up on the org chart."*
+
+---
+
 ## About
 
-Built by **Jared Langley** — BDR Manager at TigerConnect, IPEC-certified coach, and founder of [Jared Langley Coaching](https://jaredlangley.cc).
+Built by **Jared Langley** — BDR Manager at TigerConnect, IPEC-certified coach, and author of [Offline](https://jaredlangley.cc).
 
 If this was useful, the best thing you can do is pass it to another manager who needs it.
-
-If you want to go deeper on the inner game of leadership — not just the tools — that's what [Offline](https://jaredlangley.cc) is for.
 
 ---
 
