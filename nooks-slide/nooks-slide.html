@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nooks — One AI platform for the BDR team</title>
+<style>
+  :root{
+    --blue:#2f63b4;
+    --blue-dark:#1f3a66;
+    --blue-deep:#16294a;
+    --teal:#43c0a8;
+    --ink:#1f2a37;
+    --slate:#55657a;
+    --line:#e4e8ef;
+    --bg-card:#f4f6fa;
+    --green:#2f9e6e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .slide{
+    width:1920px;height:1080px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    background:linear-gradient(120deg,#2f63b4 0%,#27569e 100%);
+    color:#fff;padding:40px 70px 38px;
+  }
+  .eyebrow{font-size:22px;font-weight:700;letter-spacing:1px;opacity:.9;margin-bottom:14px;}
+  .header h1{font-size:54px;font-weight:800;line-height:1.04;letter-spacing:-.5px;}
+  .header .sub{font-size:25px;font-weight:400;opacity:.92;margin-top:14px;max-width:1500px;}
+
+  /* ---------- Body ---------- */
+  .body{flex:1;display:flex;gap:38px;padding:38px 70px 0;}
+  .col-left{width:36%;display:flex;flex-direction:column;gap:22px;}
+  .col-right{width:64%;display:flex;flex-direction:column;}
+
+  .label{font-size:20px;font-weight:800;letter-spacing:1.5px;color:var(--blue);margin-bottom:14px;}
+
+  .card{background:var(--bg-card);border-radius:14px;padding:26px 30px;border-left:7px solid var(--blue);}
+  .card.invested{border-left-color:var(--teal);}
+  .card h3{font-size:27px;font-weight:800;color:var(--blue-dark);margin-bottom:8px;}
+  .card p{font-size:21px;line-height:1.4;color:var(--slate);}
+  .card p b{color:var(--ink);font-weight:700;}
+
+  .stack-line{display:flex;align-items:baseline;gap:10px;font-size:21px;color:var(--slate);margin-top:6px;}
+  .dot{color:var(--blue);font-weight:800;}
+
+  .tag{display:inline-block;background:#e4efe9;color:var(--green);font-size:16px;font-weight:800;
+       letter-spacing:.5px;padding:5px 12px;border-radius:30px;margin-bottom:10px;}
+
+  /* WHY mini-points */
+  .why{display:flex;flex-direction:column;gap:14px;margin-top:4px;}
+  .why-item{display:flex;gap:16px;align-items:flex-start;}
+  .why-num{flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;
+           font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .why-item:nth-child(2) .why-num{background:#2f8fb4;}
+  .why-item:nth-child(3) .why-num{background:var(--teal);}
+  .why-txt h4{font-size:22px;font-weight:800;color:var(--blue-dark);line-height:1.1;}
+  .why-txt p{font-size:18.5px;color:var(--slate);line-height:1.35;margin-top:3px;}
+
+  /* ---------- Cost table ---------- */
+  .cost-card{background:var(--bg-card);border-radius:14px;padding:28px 32px 24px;flex:1;display:flex;flex-direction:column;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{font-size:16px;font-weight:800;letter-spacing:.6px;color:var(--slate);text-transform:uppercase;
+           text-align:right;padding:0 0 12px;border-bottom:2px solid var(--line);}
+  thead th.l{text-align:left;}
+  tbody td{font-size:22px;padding:14px 0;border-bottom:1px solid var(--line);text-align:right;color:var(--ink);}
+  tbody td.l{text-align:left;font-weight:600;}
+  tbody td .musc{display:block;font-size:16px;color:var(--slate);font-weight:400;margin-top:2px;}
+  tr.waived td{color:var(--green);}
+  tr.waived td.l{font-weight:700;}
+  .strike{color:#aab3c0;text-decoration:line-through;font-size:18px;margin-right:8px;}
+
+  .totals{margin-top:auto;padding-top:18px;}
+  .subtotal-row{display:flex;justify-content:space-between;font-size:20px;color:var(--slate);padding:5px 0;}
+  .subtotal-row .save{color:var(--green);font-weight:700;}
+  .grand{display:flex;justify-content:space-between;align-items:center;background:var(--blue-dark);color:#fff;
+         border-radius:12px;padding:20px 28px;margin-top:14px;}
+  .grand .gl{font-size:24px;font-weight:700;}
+  .grand .gl span{display:block;font-size:16px;font-weight:400;opacity:.8;margin-top:2px;}
+  .grand .gv{font-size:46px;font-weight:800;letter-spacing:-1px;}
+  .grand .gv small{font-size:22px;font-weight:600;opacity:.8;}
+
+  /* ---------- Footer ---------- */
+  .footer{background:var(--blue-deep);color:#fff;padding:22px 70px;display:flex;justify-content:space-between;align-items:center;margin-top:34px;}
+  .footer .f-left{font-size:22px;}
+  .footer .f-left b{color:var(--teal);font-weight:800;letter-spacing:.5px;margin-right:14px;}
+  .footer .f-left .sep{opacity:.4;margin:0 12px;}
+  .footer .f-right{font-size:18px;opacity:.6;}
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">TIGERCONNECT &nbsp;·&nbsp; BDR TOOL INVESTMENT</div>
+    <h1>One AI platform for the BDR team — not a stack of tools</h1>
+    <div class="sub">Consolidate prospecting, dialing, sequencing, and AI coaching into Nooks — the platform our reps already work in every day.</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT -->
+    <div class="col-left">
+
+      <div class="card">
+        <div class="label" style="margin-bottom:6px;">THE PLAY</div>
+        <h3>Give 5 BDRs one place to do all their work</h3>
+        <p>Reps find accounts, dial, sequence, and get coached <b>in a single tool</b>. No tab-hopping, no copy-paste between systems, no lost context — more time actually selling.</p>
+      </div>
+
+      <div class="card invested">
+        <span class="tag">ALREADY INVESTED</span>
+        <h3>We're not starting from scratch</h3>
+        <p>The team already runs on <b>AI Dialer + Nooks numbers + AI Prospector</b> today — with live workflows built around it.</p>
+        <div class="stack-line"><span class="dot">→</span><span>Nooks is merging <b>Prospector into its Sequencing product</b>, so adopting Sequencing is the natural next step, not a new vendor.</span></div>
+      </div>
+
+      <div>
+        <div class="label">WHY IT LANDS FOR BDRs</div>
+        <div class="why">
+          <div class="why-item">
+            <div class="why-num">1</div>
+            <div class="why-txt"><h4>All-in-one workflow</h4><p>Find, call, and follow up in one place — less admin, more conversations.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">2</div>
+            <div class="why-txt"><h4>AI that compounds</h4><p>Surfaces the right accounts, powers the dialer, and coaches reps on live calls.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">3</div>
+            <div class="why-txt"><h4>Feeds Gong</h4><p>Plugs into the GTM-wide conversation layer — one source of truth across the org.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col-right">
+      <div class="label">THE FULL PLATFORM COST &nbsp;·&nbsp; ORDER ORD-XHY110Y &nbsp;·&nbsp; SEP 2026 – SEP 2027</div>
+      <div class="cost-card">
+        <table>
+          <thead>
+            <tr>
+              <th class="l">Line item</th>
+              <th>Qty</th>
+              <th>Unit / yr</th>
+              <th>Annual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="l">AI Dialer — Standard Seat<span class="musc">The dialer reps live in</span></td>
+              <td>5</td><td>$3,600</td><td>$18,000</td>
+            </tr>
+            <tr>
+              <td class="l">AI Sequencing — User Seats<span class="musc">Outreach for all 5 reps</span></td>
+              <td>5</td><td>$1,440</td><td>$7,200</td>
+            </tr>
+            <tr>
+              <td class="l">AI Sequencing — Admin Seats<span class="musc">Build &amp; manage sequences</span></td>
+              <td>3</td><td>$300</td><td>$900</td>
+            </tr>
+            <tr>
+              <td class="l">AI Coaching<span class="musc">Live-call coaching for all 5 reps</span></td>
+              <td>5</td><td>$600</td><td>$3,000</td>
+            </tr>
+            <tr>
+              <td class="l">AI Action Credits<span class="musc">Research, enrichment &amp; automation fuel</span></td>
+              <td>1.4M</td><td>$0.02</td><td>$28,000</td>
+            </tr>
+            <tr class="waived">
+              <td class="l">Sequencing Implementation Fee</td>
+              <td>1</td>
+              <td><span class="strike">$10,000</span>$0</td>
+              <td>WAIVED</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="totals">
+          <div class="subtotal-row"><span>List price subtotal</span><span>$67,100</span></div>
+          <div class="subtotal-row save"><span>Negotiated discount (implementation waived, 14.9%)</span><span>– $10,000</span></div>
+          <div class="grand">
+            <div class="gl">Grand total — all-in<span>5 BDR seats · billed yearly · Net 30</span></div>
+            <div class="gv">$57,100<small> / yr</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="f-left">
+      <b>INVESTMENT</b> 5 BDR seats <span class="sep">•</span> $57.1K / year all-in <span class="sep">•</span> $10K implementation waived <span class="sep">•</span> live Sep 2026
+    </div>
+    <div class="f-right">Proprietary &amp; Confidential · Draft ORD-XHY110Y</div>
+  </div>
+
+</div>
+</body>
+</html>
